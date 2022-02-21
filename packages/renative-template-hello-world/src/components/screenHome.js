@@ -92,7 +92,7 @@ v
                         iconSize={Theme.iconSize}
                         style={themeStyles.icon}
                         onPress={() => {
-                            openURL('https://github.com/pavjacko/renative');
+                            console.log("github button")
                         }}
                     />
                     <Button
@@ -104,7 +104,7 @@ v
                         iconSize={Theme.iconSize}
                         style={themeStyles.icon}
                         onPress={() => {
-                            openURL('https://twitter.com/renative');
+                            console.log("twitter button")
                         }}
                     />
                 </FocusableView>

@@ -25,7 +25,7 @@ const htmlTemp = (options) => {
 
     const titleTag = `<title>${title}</title>`;
 
-    const noScript = '<noscript>You need to enable JavaScript to run this app.</noscript>';
+    const noScript = '<noscript>You need to enable JavaScript to run this!!.</noscript>';
     let remoteDebugScriptInject = remoteDebugScript ? `<script src="${remoteDebugScript}"></script>` : '';
 
     let webosScripts = '';
@@ -34,6 +34,11 @@ const htmlTemp = (options) => {
         if (environment !== 'production') {
             webosScripts += '\n<script type="text/javascript" src="webOSTVjs-1.1.1/webOSTV-dev.js"></script>';
         }
+    }
+
+    let tizenScripts = '';
+    if (platform === 'tizen') {
+        tizenScripts = '<script type="text/javascript" src="$WEBAPIS/webapis/webapis.js"></script>';
     }
 
     const errScript = `
@@ -59,6 +64,7 @@ ${htmlTag}
         ${remoteDebugScriptInject}
         ${isDebug ? errScript : ''}
         ${webosScripts}
+        ${tizenScripts}
     </head>
     <body>
         ${noScript}
